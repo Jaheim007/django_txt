@@ -1,0 +1,54 @@
+After I creating a folder and a virtual environment(venv), I install
+command(pip install Django) inside the virtual environment. 
+
+Then I start up the project with the command ( django-admin startproject nom_du_projet . )
+
+Then I enter into the project folder and I run the server on manage.py
+to see if the steps above worked with the: 
+commmand ( python3 manage.py runserver )
+
+Once the server is working, I have to start the application by using the 
+command ( python3 manage.py startapp name of application )
+
+Once the application is running, I create a class in (models.py) which will structure 
+our database and we will be able to use in the administration page.
+
+Next comes the migration system, migration allows us the applies the changes which were done within 
+our database, the command is (python3 manage.py makemigrations)
+
+If everytime I apply this and it keeps saying (No changes detected) that means that I have not 
+register my application within the (settings.py). 
+
+To register my application in (settings.py) I look for a list called (INSTALLED-APPS).
+Once I find the list (INSTALLED-APPS) I have to add my application which is define in the 
+folder (apps.py) so the item which I will add to the list will be something like this: 
+('name_of_application.apps.name_of_applicationConfig',) after this then we apply the changes 
+done with the command(python3 manage.py migrate).
+
+When I am done migrating I have to change the administration interface. To create the administration 
+interface I need to create a superuser who is the main administrator of the admin interface, meaning that 
+other users can be created.
+The commands is (python3 manage.py createsuperuser), after the user is created we add the model which was 
+created in the file (admin.py). 
+
+Exemple : 
+from . models import nom_de_la_classe 
+
+admin.site.register(nom_de_la_classe)
+
+When the superuser is created and the admin interfaces is done then I can directly add elements in 
+my database from the administration interface.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
